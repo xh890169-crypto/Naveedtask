@@ -6,329 +6,39 @@
 <title>Naveedtask</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-body{
-  font-family:Arial,sans-serif;
-  background:#f5f7f6;
-  color:#174b4a;
-  padding-bottom:75px;
-}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f5f7f6;color:#174b4a;padding-bottom:75px}
+button{font-family:inherit;cursor:pointer}
 
 .header{
-  height:65px;
-  background:white;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 18px;
-  box-shadow:0 2px 6px #0001;
+height:65px;background:#fff;display:flex;align-items:center;
+justify-content:space-between;padding:0 18px;
+box-shadow:0 2px 6px #0001;position:sticky;top:0;z-index:9
 }
+.logo{font-size:24px;font-weight:bold;color:#176d69}
+.icons{font-size:22px}
 
-.logo{
-  font-size:24px;
-  font-weight:bold;
-  color:#176d69;
-}
-
-.icons{
-  font-size:22px;
-  display:flex;
-  gap:18px;
-}
+.page{display:none}
+.page.active{display:block}
 
 .hero{
-  height:300px;
-  position:relative;
-  overflow:hidden;
-  background:url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80")
-  center/cover;
+height:300px;position:relative;
+background:url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80") center/cover
 }
+.hero:after{content:"";position:absolute;inset:0;background:#0005}
+.heroText{position:absolute;z-index:2;color:white;left:25px;top:95px}
+.heroText h1{font-size:30px;line-height:1.15}
+.heroText p{margin-top:12px}
+.stars{margin-top:15px;font-size:22px;color:#cbe995}
 
-.hero:after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(90deg,#0008,#0001);
-}
-
-.heroText{
-  position:absolute;
-  z-index:2;
-  color:white;
-  left:25px;
-  top:95px;
-}
-
-.heroText h1{
-  font-size:30px;
-  line-height:1.15;
-  margin-bottom:12px;
-}
-
-.heroText p{
-  font-size:15px;
-}
-
-.stars{
-  margin-top:15px;
-  font-size:22px;
-  color:#cbe995;
-}
-
-.title{
-  font-size:24px;
-  font-weight:bold;
-  padding:20px;
-}
+.title{font-size:24px;font-weight:bold;padding:20px}
 
 .cards{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
-  padding:0 16px;
+display:grid;grid-template-columns:repeat(2,1fr);
+gap:10px;padding:0 16px
 }
 
 .card{
-  background:white;
-  border:0;
-  border-radius:10px;
-  min-height:120px;
-  color:#176d69;
-  font-size:34px;
-  box-shadow:0 2px 7px #0001;
+background:white;border:0;border-radius:10px;min-height:120px;
+color:#176d69;font-size:34px;box-shadow:0 2px 7px #0001;padding:15px
 }
-
-.card span{
-  display:block;
-  font-size:15px;
-  margin-top:10px;
-}
-
-.travel{
-  font-size:23px;
-  font-weight:bold;
-  padding:22px 20px 12px;
-}
-
-.place{
-  margin:10px 16px;
-  height:155px;
-  border-radius:12px;
-  overflow:hidden;
-  position:relative;
-  background-size:cover;
-  background-position:center;
-  color:white;
-}
-
-.asia{
-  background-image:
-  linear-gradient(#0005,#0005),
-  url("https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=1000&q=80");
-}
-
-.oceania{
-  background-image:
-  linear-gradient(#0005,#0005),
-  url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80");
-}
-
-.place h2{
-  position:absolute;
-  left:20px;
-  top:20px;
-  font-size:28px;
-}
-
-.place p{
-  position:absolute;
-  left:20px;
-  bottom:20px;
-}
-
-.start{
-  position:absolute;
-  right:15px;
-  top:18px;
-  border:0;
-  border-radius:8px;
-  background:#caf09d;
-  color:#477448;
-  padding:11px 15px;
-  font-size:14px;
-}
-
-.bottom{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  height:72px;
-  background:white;
-  border-top:1px solid #ddd;
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  z-index:10;
-}
-
-.bottom button{
-  border:0;
-  background:white;
-  color:#aaa;
-  font-size:25px;
-}
-
-.bottom button span{
-  display:block;
-  font-size:11px;
-  margin-top:3px;
-}
-
-.bottom .active{
-  color:#277b77;
-}
-
-#message{
-  position:fixed;
-  bottom:90px;
-  left:50%;
-  transform:translateX(-50%);
-  background:#174b4a;
-  color:white;
-  padding:12px 18px;
-  border-radius:8px;
-  display:none;
-  z-index:20;
-}
-</style>
-</head>
-
-<body>
-
-<div class="header">
-  <div class="logo">Naveedtask</div>
-  <div class="icons">🎧　✉️</div>
-</div>
-
-<div class="hero">
-  <div class="heroText">
-    <h1>TRAVEL AROUND<br>THE WORLD</h1>
-    <p>Explore new places and complete demo tasks.</p>
-    <div class="stars">★★★★★</div>
-  </div>
-</div>
-
-<div class="title">Information</div>
-
-<div class="cards">
-
-<button class="card" onclick="demo('Deposit demo')">
-💳
-<span>Deposit</span>
-</button>
-
-<button class="card" onclick="demo('Withdraw demo')">
-↗️
-<span>Withdraw</span>
-</button>
-
-<button class="card" onclick="demo('CDKey demo')">
-🔑
-<span>CDKey</span>
-</button>
-
-<button class="card" onclick="demo('Wheel of Fortune demo')">
-🎡
-<span>Wheel of Fortune</span>
-</button>
-
-<button class="card" onclick="demo('Financial Products demo')">
-📈
-<span>Financial Products</span>
-</button>
-
-<button class="card" onclick="demo('Tutorial')">
-📖
-<span>Tutorial</span>
-</button>
-
-<button class="card" onclick="demo('Company Profile')">
-🏢
-<span>Company Profile</span>
-</button>
-
-<button class="card" onclick="demo('Share Invitation')">
-↗️
-<span>Share Invitation</span>
-</button>
-
-</div>
-
-<div class="travel">Travel around the world</div>
-
-<div class="place asia">
-  <h2>Asia</h2>
-  <p>Available levels: T1 / T2 / T3</p>
-  <button class="start" onclick="demo('Asia journey')">
-    Start your journey ›
-  </button>
-</div>
-
-<div class="place oceania">
-  <h2>Oceania</h2>
-  <p>Available levels: T1 / T2 / T3</p>
-  <button class="start" onclick="demo('Oceania journey')">
-    Start your journey ›
-  </button>
-</div>
-
-<div id="message"></div>
-
-<div class="bottom">
-
-<button class="active" onclick="demo('Home')">
-⌂
-<span>Home</span>
-</button>
-
-<button onclick="demo('News')">
-▤
-<span>News</span>
-</button>
-
-<button onclick="demo('Task')">
-☂
-<span>Task</span>
-</button>
-
-<button onclick="demo('Team')">
-♧
-<span>Team</span>
-</button>
-
-<button onclick="demo('Mine')">
-♙
-<span>Mine</span>
-</button>
-
-</div>
-
-<script>
-function demo(text){
-  let box=document.getElementById("message");
-  box.innerText=text+" selected";
-  box.style.display="block";
-
-  setTimeout(function(){
-    box.style.display="none";
-  },1800);
-}
-</script>
-
-</body>
-</html>
