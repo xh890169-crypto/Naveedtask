@@ -6,39 +6,78 @@
 <title>Naveedtask</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#f5f7f6;color:#174b4a;padding-bottom:75px}
-button{font-family:inherit;cursor:pointer}
-
-.header{
-height:65px;background:#fff;display:flex;align-items:center;
-justify-content:space-between;padding:0 18px;
-box-shadow:0 2px 6px #0001;position:sticky;top:0;z-index:9
+*{box-sizing:border-box}
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f4f6f9;
+    color:#222;
 }
-.logo{font-size:24px;font-weight:bold;color:#176d69}
-.icons{font-size:22px}
-
+header{
+    background:#1769aa;
+    color:white;
+    padding:18px;
+    text-align:center;
+    font-size:24px;
+    font-weight:bold;
+}
+.container{
+    max-width:600px;
+    margin:auto;
+    padding:15px;
+}
+.card{
+    background:white;
+    border-radius:12px;
+    padding:18px;
+    margin-bottom:15px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+h2,h3{margin-top:0}
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+}
+button,.btn{
+    border:0;
+    border-radius:8px;
+    padding:12px;
+    background:#1769aa;
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+    text-decoration:none;
+    display:block;
+    text-align:center;
+}
+.green{background:#168a45}
+.orange{background:#e68a00}
+.red{background:#d93025}
+input{
+    width:100%;
+    padding:12px;
+    margin:7px 0 12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+}
 .page{display:none}
 .page.active{display:block}
-
-.hero{
-height:300px;position:relative;
-background:url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80") center/cover
+.info{
+    background:#eef6ff;
+    border-radius:8px;
+    padding:12px;
+    margin:10px 0;
 }
-.hero:after{content:"";position:absolute;inset:0;background:#0005}
-.heroText{position:absolute;z-index:2;color:white;left:25px;top:95px}
-.heroText h1{font-size:30px;line-height:1.15}
-.heroText p{margin-top:12px}
-.stars{margin-top:15px;font-size:22px;color:#cbe995}
-
-.title{font-size:24px;font-weight:bold;padding:20px}
-
-.cards{
-display:grid;grid-template-columns:repeat(2,1fr);
-gap:10px;padding:0 16px
+.payment{
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:15px;
+    margin:12px 0;
 }
-
-.card{
-background:white;border:0;border-radius:10px;min-height:120px;
-color:#176d69;font-size:34px;box-shadow:0 2px 7px #0001;padding:15px
+.copy{
+    background:#555;
+    margin-top:8px;
 }
+nav{
